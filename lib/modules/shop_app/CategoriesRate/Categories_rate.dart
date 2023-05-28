@@ -30,6 +30,7 @@ class _CategorySlidersPageState extends State<CategorySlidersPage> {
   double classesWorkshopsValue = 0.0;
   double casinosGamblingValue = 0.0;
 
+
   @override
   Widget build(BuildContext context) {
   return Scaffold(
@@ -141,6 +142,7 @@ class _CategorySlidersPageState extends State<CategorySlidersPage> {
         style: TextStyle(fontSize: 18),
       ),
       onPressed: () {
+        
         print("$natureParksValue");
         print("$sightsLandmarksValue");
         print("$museumsValue");
@@ -187,8 +189,8 @@ class _CategorySlidersPageState extends State<CategorySlidersPage> {
   Slider(
   value: value,
   min: 0,
-  max: 100,
-    divisions: 20,
+  max: 5,
+   // divisions: 20,
   onChanged: (newValue) {
   setState(() {
   if (category == 'Nature & Parks') {

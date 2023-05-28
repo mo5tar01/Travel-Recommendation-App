@@ -1,15 +1,43 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:udemy_flutter/modules/shop_app/CategoriesRate/Categories_rate.dart';
 import 'package:udemy_flutter/modules/shop_app/login/shop_login_screen.dart';
 import 'package:udemy_flutter/shared/components/components.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import '../Main/Home_Screen.dart';
 
-class ShopRegisterScreen extends StatelessWidget {
+final FirebaseAuth _auth = FirebaseAuth.instance;
+final DatabaseReference _database = FirebaseDatabase.instance.reference();
+Future<void> signInWithEmail(String email, String password) async {
+  try {
+    UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    // Get the user data from the Realtime Database
+    String userId = userCredential.user!.uid;
+    DataSnapshot snapshot = await _database.child('users/$userId').once();
+    Map userData = snapshot.value;
+
+    //Use the user data in your application
+    print(userData['name']);
+  } catch (e) {
+    // Handle authentication errors
+    print(e);
+  }
+}
+
+class ShopRegisterScreen extends StatefulWidget {
   const ShopRegisterScreen({Key? key}) : super(key: key);
 
+  @override
+  State<ShopRegisterScreen> createState() => _ShopRegisterScreenState();
+}
 
+class _ShopRegisterScreenState extends State<ShopRegisterScreen> {
   @override
   Widget build(BuildContext context) {
     var newemailController = TextEditingController();

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "309564727396",
+    "project_id": "travel-recommendation-ap-90638",
+    "storage_bucket": "travel-recommendation-ap-90638.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309564727396:android:19ee5baa97fbb1f8563f71",
+        "android_client_info": {
+          "package_name": "com.example.untitled3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4C6JcEuUWkqsT-xOBAGSyrZbxZ2LzUfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
